@@ -22,7 +22,7 @@ VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_se
  actor_rollout_ref.actor.fsdp_config.param_offload=True \
  actor_rollout_ref.actor.fsdp_config.optimizer_offload=True \
  actor_rollout_ref.actor.use_dynamic_bsz=True \
- actor_rollout_ref.actor.ppo_max_token_len_per_gpu=40000 \
+ actor_rollout_ref.actor.ppo_max_token_len_per_gpu=30000 \
  actor_rollout_ref.rollout.name=sglang \
  actor_rollout_ref.rollout.val_kwargs.n=1 \
  actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=2 \
@@ -34,11 +34,11 @@ VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_se
  algorithm.step_level_adv_estimator=reinforce_plus_plus \
  algorithm.filter_groups.enable=True \
  algorithm.filter_groups.max_num_gen_batches=3 \
- trainer.logger=['wandb, console'] \
+ trainer.logger=['console'] \
  trainer.val_before_train=False \
  trainer.default_hdfs_dir=null \
  trainer.n_gpus_per_node=8 \
- trainer.nnodes=4 \
+ trainer.nnodes=8 \
  trainer.save_freq=10 \
  trainer.test_freq=50 \
  trainer.experiment_name=l0-32b \

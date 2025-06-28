@@ -26,7 +26,7 @@ VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_se
  actor_rollout_ref.rollout.name=sglang \
  actor_rollout_ref.rollout.val_kwargs.n=1 \
  actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=2 \
- actor_rollout_ref.rollout.tensor_model_parallel_size=4 \
+ actor_rollout_ref.rollout.tensor_model_parallel_size=2 \
  actor_rollout_ref.rollout.gpu_memory_utilization=0.4 \
  actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=2 \
  reward_model.reward_manager=multistep \
@@ -34,7 +34,7 @@ VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_se
  algorithm.step_level_adv_estimator=reinforce_plus_plus \
  algorithm.filter_groups.enable=True \
  algorithm.filter_groups.max_num_gen_batches=3 \
- trainer.logger=['wandb, console'] \
+ trainer.logger=['console'] \
  trainer.val_before_train=False \
  trainer.default_hdfs_dir=null \
  trainer.n_gpus_per_node=8 \

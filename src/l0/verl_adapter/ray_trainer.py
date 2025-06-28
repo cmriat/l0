@@ -266,15 +266,7 @@ class AgenticRayPPOTrainer(RayPPOTrainer):
         sample_inputs = []
         sample_outputs = []
 
-        # Add counter to limit validation batches
-        max_batches = 2
-        batch_count = 0
-
-        # TODO: eliminate this hard-coded limit
         for test_data in self.val_dataloader:
-            if batch_count >= max_batches:
-                break
-            batch_count += 1
             print(f"test_batch_question length: {len(test_data['question'])}, example: {test_data['question'][:5]}")
             test_data["placeholder"] = torch.zeros(len(test_data["question"]), 1)
             test_batch = DataProto.from_single_dict(test_data)

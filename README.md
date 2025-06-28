@@ -208,7 +208,7 @@ ray start --address=YOUR_HEAD_NODE_IP:6379
     ```
 
 - **32B Model (Qwen2.5-32B-Instruct)**
-  - **Hardware Requirements**: 4 nodes, 32 GPUs
+  - **Hardware Requirements**: 8 nodes, 64 GPUs
   - **Command**:
     ```bash
     RAY_ADDRESS=YOUR_HEAD_NODE_IP:8265 ray job submit examples/nb_agent_training/train_qa_reinforcepp_dynamic_32b.sh
