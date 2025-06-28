@@ -1,0 +1,32 @@
+=========================================================================
+  NOTICE for l0
+=========================================================================
+
+Copyright (c) 2022–2025, China Merchants Research Institute of Advanced Technology Corporation and its Affiliates.
+
+This product includes software from other open source projects.
+The original copyright notices and licenses for these projects are provided below.
+
+=========================================================================
+  Software from the verl library
+=========================================================================
+
+This product includes software from the verl library, developed by
+Bytedance Ltd. and/or its affiliates. The original copyright notice for
+the verl components is:
+
+-------------------------------------------------------------------------
+Copyright 2023-2024 Bytedance Ltd. and/or its affiliates
+-------------------------------------------------------------------------
+
+=========================================================================
+  Software from the sglang library
+=========================================================================
+
+This product includes software from the sglang library.
+The sglang library is licensed under the Apache License 2.0.
+The original copyright for the sglang library is:
+
+-------------------------------------------------------------------------
+Copyright 2023-2024 SGLang Team
+-------------------------------------------------------------------------

@@ -1,0 +1,18 @@
+# pixi environments
+.pixi
+*.egg-info
+
+__pycache__
+.env
+.cursor
+.vscode
+
+*.log
+dev
+checkpoints
+wandb
+log
+results
+outputs
+trajectory
+evaluation/nb_agent_eval/eval_datasets/data/

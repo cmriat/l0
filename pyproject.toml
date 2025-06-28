@@ -1,0 +1,77 @@
+[project]
+name = "l0"
+version = "0.0.1"
+description = "AgentRL: A framework for training agents in RL."
+requires-python = ">=3.10"
+dependencies = []
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/l0"]
+
+[tool.ruff]
+line-length = 120
+output-format = "grouped"
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+  # isort
+  "I",
+  # bugbear rules
+  "B",
+  # remove unused imports
+  "F401",
+  # bare except statements
+  "E722",
+  # unused arguments
+  "ARG",
+  # print statements
+  "T201",
+  "T203",
+  # misuse of typing.TYPE_CHECKING
+  "TC004",
+  # import rules
+  "TID251",
+  # docstring
+  "D"
+]
+ignore = [
+  # mutable defaults
+  "B006",
+  # On top of the Google convention, disable `D417`
+  "D417",
+  "D101",
+  "D102",
+  "D103",
+  "D105",
+  "D107",
+  "T201"
+]
+unfixable = [
+  # disable auto fix for print statements
+  "T201",
+  "T203",
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.isort]
+length-sort = true
+length-sort-straight = true
+combine-as-imports = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**.py" = ["ARG001"]

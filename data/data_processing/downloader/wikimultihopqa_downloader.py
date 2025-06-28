@@ -1,0 +1,59 @@
+# Copyright (c) 2022–2025 China Merchants Research Institute of Advanced Technology Corporation and its Affiliates
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""2WikiMultiHopQA dataset downloader."""
+
+import json
+
+import datasets
+from upath import UPath
+from huggingface_hub import hf_hub_download
+
+from .base_downloader import DatasetDownloader
+
+
+class WikiMultiHopQADownloader(DatasetDownloader):
+    """Processor for 2WikiMultiHopQA dataset."""
+
+    def __init__(self, cache_dir: UPath, save_dir: UPath, num_proc: int = 8):
+        super().__init__(cache_dir, save_dir, "2WikiMultihopQA", "voidful/2WikiMultihopQA", num_proc=num_proc)
+
+    def load_dataset(self, subfolder: str = None):  # noqa: ARG002
+        """Load data from JSON files."""
+        dataset_dict = datasets.DatasetDict()
+
+        for split in ["train", "dev", "test"]:
+            split_cache_path = UPath(
+                hf_hub_download(
+                    self.dataset_id_or_path,
+                    repo_type="dataset",
+                    filename=f"{split}.json",
+                    cache_dir=self.cache_dataset_dir,
+                )
+            )
+            with open(split_cache_path) as f:
+                raw_data = json.load(f)
+
+            samples = [self.transform_sample(example) for example in raw_data]
+
+            # Create a Dataset object from the processed examples
+            dataset_dict[split] = datasets.Dataset.from_list(samples)
+
+        return dataset_dict
+
+    def transform_sample(self, example):
+        return {"question": example["question"], "answer": example["answer"]}
+
+    def has_answer(self, example):
+        return len(example["answer"]) > 0
