@@ -121,7 +121,7 @@ class SGLServerRollout(BaseRollout):
             port=self.port,
             host="0.0.0.0",
             enable_mixed_chunk=True,
-            log_level="info",
+            log_level="warning",
             # log_requests=True,
             # log_requests_level=2,
             # max_running_requests=1,

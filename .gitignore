@@ -8,11 +8,14 @@ __pycache__
 .vscode
 
 *.log
+
+dataset
 dev
 checkpoints
 wandb
 log
 results
+output
 outputs
 trajectory
 evaluation/nb_agent_eval/eval_datasets/data/
