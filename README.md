@@ -140,9 +140,12 @@ Some tools of **NB-Agent** require API keys for external services. The following
 - **Content Processing**: [Jina](https://jina.ai/) (required)
 - **Search Services**: At least one of [Exa](https://www.exa.ai/), [Firecrawl](https://www.firecrawl.dev/), or [Serper](https://serper.dev/) (choose one or more)
 
-Create a `.env` file in the root directory with the configurations of dependent services:
+Create a `.env` file in the root directory with the configurations of dependent services and some placeholder:
 
 ```bash
+OPENAI_API_BASE="just fill in place holder"
+OPENAI_MODEL_ID="just fill in place holder"
+OPENAI_API_KEY="just fill in place holder"
 JINA_API_KEY= "YOUR_JINA_API_KEY"
 FIRECRAWL_BASE_URL= "YOUR_FIRECRAWL_BASE_URL" # e.g. "http://firecrawl.lionrock.com"
 EXA_API_KEY= "YOUR_EXA_API_KEY"
