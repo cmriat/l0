@@ -92,7 +92,7 @@ And L0 gained competitive performance compared with other works:
 ### Installation:
 ```bash
 # Clone this repository
-git clone https://github.com/cmriat/l0.git
+git clone --recurse-submodules https://github.com/cmriat/l0.git
 cd l0
 ```
 We use **Pixi** for package management. 
@@ -117,7 +117,7 @@ This example demonstrates training a NB-Agent using the REINFORCE++ algorithm on
 #### Prerequisites
 **1. Prepare dataset**
 ```bash
-base examples/data_preprocess/l0_qa.py --local_dir LOCAL_DIR_TO_SAVE_DATASET
+python examples/data_preprocess/l0_qa.py --local_dir ./dataset
 ```
 
 **2. Start Agent Execution Manager Server**

@@ -26,7 +26,7 @@ import datasets
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--local_dir", type=str, required=True)
-    parser.add_argument("--data_source", type=str, default="cmriat/l0-clearqa")
+    parser.add_argument("--data_source", type=str, default="cmriat/l0-qa")
 
     args = parser.parse_args()
 

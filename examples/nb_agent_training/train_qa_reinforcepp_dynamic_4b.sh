@@ -1,11 +1,11 @@
 VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True python3 examples/nb_agent_training/train_nb_agent.py \
- data.train_files=./data/train.parquet \
- data.val_files=./data/validation.parquet \
+ data.train_files=./dataset/train.parquet \
+ data.val_files=./dataset/validation.parquet \
  data.train_batch_size=64 \
  data.val_batch_size=128 \
  data.max_prompt_length=16384 \
  data.max_response_length=3072 \
- actor_rollout_ref.traj_sampler.remote_exec_server_url=['http://your_server_ip:8000'] \
+ actor_rollout_ref.traj_sampler.remote_exec_server_url=['http://your_task_server_ip:8000'] \
  actor_rollout_ref.traj_sampler.executor_type=remote \
  actor_rollout_ref.traj_sampler.agent.task_run.max_steps=15 \
  actor_rollout_ref.traj_sampler.max_concurrency=128 \
