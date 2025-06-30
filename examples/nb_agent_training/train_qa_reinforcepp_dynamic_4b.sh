@@ -24,11 +24,8 @@ VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_se
  actor_rollout_ref.actor.use_dynamic_bsz=True \
  actor_rollout_ref.actor.ppo_max_token_len_per_gpu=30000 \
  actor_rollout_ref.rollout.name=sglang \
- actor_rollout_ref.rollout.val_kwargs.n=1 \
- actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=2 \
  actor_rollout_ref.rollout.tensor_model_parallel_size=1 \
  actor_rollout_ref.rollout.gpu_memory_utilization=0.4 \
- actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=2 \
  reward_model.reward_manager=multistep \
  algorithm.token_level_adv_estimator=trivial \
  algorithm.step_level_adv_estimator=reinforce_plus_plus \

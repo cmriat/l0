@@ -19,17 +19,17 @@ import json
 import pandas as pd
 from rich import print as rprint
 
-# 不限制行数、列数
-pd.set_option("display.max_rows", None)  # 或一个很大的数
+# Do not limit the number of rows and columns
+pd.set_option("display.max_rows", None)  # Or a very large number
 pd.set_option("display.max_columns", None)
 
-# 不限制单列里字符串的显示宽度
-pd.set_option("display.max_colwidth", None)  # pandas ≥1.3 可以设为 None；旧版用 -1
+# Do not limit the display width of strings in a single column
+pd.set_option("display.max_colwidth", None)  # pandas >=1.3 can be None; use -1 for older versions
 
-# 让一行能装下全部列（不自动换行）
-pd.set_option("display.width", None)  # 也可以设为 1000 之类具体宽度
+# Allow all columns to fit on one line (no automatic wrapping)
+pd.set_option("display.width", None)  # Can also be set to a specific width like 1000
 
-# 如果仍想在一行内打印（不换行），保持此项为 True；想纵向折叠可改 False
+# If you still want to print on one line (no wrapping), keep this as True; set to False for vertical folding
 pd.set_option("display.expand_frame_repr", True)
 
 DATA_FILE = "/data/agent_datasets/qa_datasets/filtered/validation.parquet"
