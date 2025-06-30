@@ -8,7 +8,7 @@
 [![知乎](https://img.shields.io/badge/知乎-Article-green.svg)](https://zhuanlan.zhihu.com/p/1922271253122748911)
 
 
-**🤖 a scalable, end-to-end training pipeline for general-purpose agents**
+**🤖 A scalable, end-to-end training pipeline for general-purpose agents**
 
 </div>
 
@@ -57,7 +57,7 @@ We significantly improved the model's performance on multiple benchmarks using L
 ![Improvement](./assets/improvement.png)
 * Model name + NB-Agent indicates directly evaluate the model with NB-Agent without training.
 
-And L0 gained competitive performance compared with other works:
+L0 also gained competitive performance compared with other works:
 ![Comparison](./assets/7b_comparsion.png)
 * All compared with 7B models
 
@@ -122,7 +122,7 @@ python examples/data_preprocess/l0_qa.py --local_dir ./dataset
 
 **2. Start Agent Execution Manager Server**
 
-On the remote machines (1 or more, only consume cpus):
+On the remote machines (1 or more, only consume CPUs):
 ```bash
 bash examples/start_task_server.sh
 ```
@@ -227,10 +227,10 @@ ray start --address=YOUR_HEAD_NODE_IP:6379
 We directly adapt conversion scripts from verl. It's under `examples/model_converter.py`. Please refer to the [verl model converter document](https://verl.readthedocs.io/en/latest/advance/checkpoint.html#convert-fsdp-and-megatron-checkpoints-to-huggingface-format-model) for usage after training.
 
 ### Serving your own model
-Since `NB-Agent` needs to use tokenizer of the model, we patch SGLang to provide extra end points. You could refer to the [example patched SGLang server document](./evaluation/nb_agent_eval/README.md) for launching a patched SGLang server.
+Since `NB-Agent` needs to use the tokenizer of the model, we patch SGLang to provide extra endpoints. You could refer to the [example patched SGLang server document](./evaluation/nb_agent_eval/README.md) for launching a patched SGLang server.
 
 ## 📊 Evaluation
-We provide an evaluation suite for QA dataset with agent worker pool to parallel sampling. You could refer to the [evaluation document](./evaluation/nb_agent_eval/README.md) for more details.
+We provide an evaluation suite for QA datasets with an agent worker pool to parallelize sampling. You could refer to the [evaluation document](./evaluation/nb_agent_eval/README.md) for more details.
 
 ## 🗂️ Data preprocessing
 We provide a data preprocessing pipeline for QA datasets, which includes downloading, merging, quality assessment, and filtering. You could refer to the [data preprocessing document](./data/README.md) for more details.
@@ -255,7 +255,7 @@ pytest ./tests
 
 ## ⚠️ Known Issues
 
-* If you encounter Out of Memory (OOM) errors during SGLang server capture CUDA graph, you could try to launch ray cluster first and then submit your training script. You can refer to multinode training section. It also works for single node training.
+* If you encounter Out of Memory (OOM) errors during SGLang server capture CUDA graph, you could try to launch ray cluster first and then submit your training script. You can refer to the multi-node training section. It also works for single node training.
 
 
 ## 🙏 Acknowledgments
