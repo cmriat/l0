@@ -60,10 +60,10 @@ def monkey_patch_tensordict_chunk():
                 chunk_size = base_size
             end = start + chunk_size
             if dim == 0:
-                # 对于第0维，直接使用切片
+                # For the 0th dimension, directly use slicing
                 result.append(self[start:end])
             else:
-                # 对于其他维度，需要构造索引
+                # For other dimensions, construct the index
                 index = [slice(None)] * len(self.batch_size)
                 index[dim] = slice(start, end)
                 result.append(self[tuple(index)])

@@ -1,1 +1,1 @@
-python -m l0.traj_sampler.task_server --port 8000 2>&1 > /data/agent_output/sampler.log | tee /data/agent_output_7b_dapo/sampler.log
+python -m l0.traj_sampler.task_server --port 8000 2>&1 | tee ./sampler.log
