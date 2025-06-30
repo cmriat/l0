@@ -16,10 +16,10 @@
 
 ## 🎯 Overview
 
-L0 is a a scalable, end-to-end training pipeline for general-purpose agents. We provides you:
+L0 is a scalable, end-to-end training pipeline for general-purpose agents. We provide you:
 * A RL training framework for complex agentic environments, featuring a low-cost, extensible, and sandboxed concurrent agent worker pool.
 * A generalist agentic scaffold **Notebook Agent (NB-Agent)** operates in a "code-as-action" fashion via a Read-Eval-Print-Loop (REPL) with Jupyter Kernel.
-* A simple yet effecitve Agentic multi-turn training recipe with **agentic policy gradient** and **verifiable multi-step rewards**.
+* A simple yet effective agentic multi-turn training recipe with **agentic policy gradient** and **verifiable multi-step rewards**.
 * A series of models trained with L0, including **L0-4B (Qwen 3)**, **L0-7B (Qwen2.5)**, and **L0-32B (Qwen2.5)**. We claim that these models are capable of general agentic tasks, [a case on deep searcher scenario](./examples/nb_agent/deep_searcher_case.md) using **L0-32B (Qwen2.5)** is provided in the examples.
 
 ## 📋 Table of Contents
@@ -40,7 +40,7 @@ L0 is a a scalable, end-to-end training pipeline for general-purpose agents. We 
       - [Training Scenarios](#training-scenarios)
     - [Using `NB-Agent` Scaffold Alone](#using-nb-agent-scaffold-alone)
     - [Model conversion](#model-conversion)
-    - [Serving you own model](#serving-you-own-model)
+    - [Serving your own model](#serving-your-own-model)
   - [📊 Evaluation](#-evaluation)
   - [🗂️ Data preprocessing](#️-data-preprocessing)
   - [🛠️ Development](#️-development)
@@ -69,19 +69,19 @@ And L0 gained competitive performance compared with other works:
 #### Algorithm
 
 - **Agentic Policy Gradient**: Optimizes policy gradient for agents, treats a complete "think-code" sequence as a single action
-- **Verifiable Reward Funcion**: Provides multi-faceted rewards for answer correctness, format compliance, and code execution
+- **Verifiable Reward Function**: Provides multi-faceted rewards for answer correctness, format compliance, and code execution
 - **Strict On-Policy Training**: Uses a pure on-policy approach with a KL-divergence penalty for stable learning
 - **DAPO-Inspired Rejection Sampling**: Advanced rejection sampling strategy for improved policy optimization
 
 #### Infrastructure
 
 - **Decoupled Architecture**: Separates CPU agent workers from a GPU inference server for independent scaling
-- **Flexible server-client architecture**: Scalable agent task execution with FastAPI-based orchestration, you could refer to the [trajector sampler design document](./docs/design/traj_sampler/arch.md) for more details
+- **Flexible server-client architecture**: Scalable agent task execution with FastAPI-based orchestration, you could refer to the [trajectory sampler design document](./docs/design/traj_sampler/arch.md) for more details
 - **Lightweight Sandboxing**: Uses Bubblewrap for secure, low-overhead, and parallel agent environments
 
 ### NB-Agent
 
-**NB-Agent** is designed to be a general-purpose agentic following "Code-as-Action" paradigm. Moreover, it works in a REPL, which allows agents to interact with environments by generating code snippets that are executed in a Jupyter Notebook environment. 
+**NB-Agent** is designed to be a general-purpose agent following "Code-as-Action" paradigm. Moreover, it works in a REPL, which allows agents to interact with environments by generating code snippets that are executed in a Jupyter Notebook environment. 
 
 ![NBAgent Architecture](./assets/nbagent_arch.png)
 
@@ -226,11 +226,11 @@ ray start --address=YOUR_HEAD_NODE_IP:6379
 ### Model conversion
 We directly adapt conversion scripts from verl. It's under `examples/model_converter.py`. Please refer to the [verl model converter document](https://verl.readthedocs.io/en/latest/advance/checkpoint.html#convert-fsdp-and-megatron-checkpoints-to-huggingface-format-model) for usage after training.
 
-### Serving you own model
-Since `NB-Agent` need to use tokenizer of the model, we patch SGLang to provide extra end points. You could refer to the [example patched SGLang server document](./evaluation/nb_agent_eval/README.md) for launching a patched SGLang server.
+### Serving your own model
+Since `NB-Agent` needs to use tokenizer of the model, we patch SGLang to provide extra end points. You could refer to the [example patched SGLang server document](./evaluation/nb_agent_eval/README.md) for launching a patched SGLang server.
 
 ## 📊 Evaluation
-We provide a evaluation suite for QA dataset with agent worker pool to to parallel sampling. You could refer to the [evaluation document](./evaluation/nb_agent_eval/README.md) for more details.
+We provide an evaluation suite for QA dataset with agent worker pool to parallel sampling. You could refer to the [evaluation document](./evaluation/nb_agent_eval/README.md) for more details.
 
 ## 🗂️ Data preprocessing
 We provide a data preprocessing pipeline for QA datasets, which includes downloading, merging, quality assessment, and filtering. You could refer to the [data preprocessing document](./data/README.md) for more details.
