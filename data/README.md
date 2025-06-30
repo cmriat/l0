@@ -29,7 +29,7 @@ python download_datasets.py \
 - `--cache_dir`: Directory to cache raw datasets
 - `--save_dir`: Directory to save modified datasets
 - `--num_proc`: Number of processes for download processing (default: 8)
-- `--dataset`: Dataset names to process, supports specifying single or multiple datasets, or use 'all' to process all datasets
+- `--dataset`: Dataset(s) to process - supports specifying single or multiple datasets (e.g., simple_qa natural_questions), or use 'all' to process all datasets (default: all)
 - `--http_proxy`: (Optional) HTTP proxy address
 
 **Supported Datasets:**
@@ -90,8 +90,8 @@ Filters datasets based on quality assessment results and splits them into train/
 python filter_datasets.py \
     --assessed_data_dir {path to assessed dataset} \
     --filtered_data_dir {path to filtered dataset} \
-    --objectivity_threshold 1.0 \
-    --temporal_stability_threshold 1.0 \
+    --objectivity_threshold 1 \
+    --temporal_stability_threshold 1 \
     --train_ratio 0.8 \
     --val_ratio 0.1 \
     --test_ratio 0.1
@@ -100,8 +100,8 @@ python filter_datasets.py \
 **Parameter Description:**
 - `--assessed_data_dir`: Directory containing assessed dataset
 - `--filtered_data_dir`: Directory to save filtered dataset
-- `--objectivity_threshold`: Objectivity score threshold (0-1, default: 1.0)
-- `--temporal_stability_threshold`: Temporal stability score threshold (0-1, default: 1.0)
+- `--objectivity_threshold`: Objectivity score threshold (0-1, default: 1)
+- `--temporal_stability_threshold`: Temporal stability score threshold (0-1, default: 1)
 - `--train_ratio`: Training set ratio (default: 0.8)
 - `--val_ratio`: Validation set ratio (default: 0.1)
 - `--test_ratio`: Test set ratio (default: 0.1)
@@ -124,12 +124,12 @@ python download_datasets.py \
 # Step 2: Merge datasets
 python merge_datasets.py \
     --modified_data_base_dir {path to modified dataset} \
-    --merged_data_dir {path to merged dataset} \
+    --merged_data_dir {path to merged dataset}
 
 # Step 3: Assess dataset quality
 python quality_assess_datasets.py \
     --merged_data_dir {path to merged dataset} \
-    --assessed_data_dir {path to assessed dataset} \
+    --assessed_data_dir {path to assessed dataset}
 
 # Step 4: Filter datasets and split into train/validation/test sets
 python filter_datasets.py \
@@ -158,7 +158,7 @@ python merge_datasets.py \
 # Assess quality only (if merged dataset already exists)
 python quality_assess_datasets.py \
     --merged_data_dir {path to merged dataset} \
-    --assessed_data_dir {path to assessed dataset} \
+    --assessed_data_dir {path to assessed dataset}
 
 # Filter data only (if assessed dataset already exists)
 python filter_datasets.py \
@@ -192,7 +192,6 @@ data/
 ├── merge_datasets.py              # Dataset merge script
 ├── quality_assess_datasets.py     # Quality assessment script
 ├── filter_datasets.py             # Dataset filtering script
-├── analyze_assessment.ipynb       # Assessment result analysis
 ├── data_processing/
 │   ├── downloader/               # Downloader modules
 │   ├── dataset_merger.py         # Dataset merger class
