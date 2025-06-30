@@ -8,7 +8,7 @@ VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_se
  actor_rollout_ref.traj_sampler.remote_exec_server_url=['http://your_task_server_ip:8000'] \
  actor_rollout_ref.traj_sampler.executor_type=remote \
  actor_rollout_ref.traj_sampler.agent.task_run.max_steps=8 \
- actor_rollout_ref.traj_sampler.max_concurrency=32 \
+ actor_rollout_ref.traj_sampler.max_concurrency=256 \
  actor_rollout_ref.traj_sampler.task_timeout=240 \
  actor_rollout_ref.traj_sampler.max_retries=1 \
  actor_rollout_ref.traj_sampler.agent.nb_agent.traj_save_storage_path=./output/trajectories \
@@ -21,10 +21,11 @@ VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_se
  actor_rollout_ref.actor.use_kl_loss=True \
  actor_rollout_ref.actor.fsdp_config.offload_policy=True \
  actor_rollout_ref.actor.use_dynamic_bsz=True \
- actor_rollout_ref.actor.ppo_max_token_len_per_gpu=40000 \
+ actor_rollout_ref.actor.ppo_max_token_len_per_gpu=20000 \
  actor_rollout_ref.rollout.name=sglang \
  actor_rollout_ref.rollout.tensor_model_parallel_size=1 \
  actor_rollout_ref.rollout.gpu_memory_utilization=0.4 \
+ actor_rollout_ref.ref.fsdp_config.param_offload=True \
  reward_model.reward_manager=multistep \
  algorithm.token_level_adv_estimator=trivial \
  algorithm.step_level_adv_estimator=reinforce_plus_plus \

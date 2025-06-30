@@ -138,7 +138,7 @@ Edit the training script to specify remote server URLs:
 
 Some tools of **NB-Agent** require API keys for external services. The following services are required in QA training:
 - **Content Processing**: [Jina](https://jina.ai/) (required)
-- **Search Services**: At least one of [Exa](https://www.exa.ai/), [Firecrawl](https://www.firecrawl.dev/), or [Serper](https://serper.dev/) (choose one or more)
+- **Search Services**: At least one of [Exa](https://www.exa.ai/), [Firecrawl](https://www.firecrawl.dev/), or [Serper](https://serper.dev/) (choose one or more, Serper is recommended one, if you are using search tool other than serper, please modify `TOOL_FACTORY_MAP` in [tool specs factory tool](./src/l0/traj_sampler/nb_agent_sampler/tool_specs.py)).
 
 Create a `.env` file in the root directory with the configurations of dependent services. You can use the `.env.example` file as a template:
 ```bash
@@ -171,7 +171,7 @@ For single-node setups with limited GPU resources:
   - **Hardware Requirements**: 1 node, 1 GPU
   - **Command**:
     ```bash
-    bash examples/nb_agent_training/train_qa_reinforcepp_dynamic_0.6b.sh
+    bash examples/nb_agent_training/train_qa_reinforcepp_dynamic_0_6b.sh
     ```
 
 - **4B Model (Qwen3-4B)**
@@ -250,6 +250,7 @@ pytest ./tests
 ## ⚠️ Known Issues
 
 * If you encounter Out of Memory (OOM) errors during SGLang server capture CUDA graph, you could try to launch ray cluster first and then submit your training script. You can refer to the multi-node training section. It also works for single node training.
+* If training hangs at the update_weight_from_tensors step in the SGLang server, please try restarting the process or adjusting the tensor parallel size. We will work with the SGLang team and verl team to locate and resolve this issue.
 
 
 ## 🙏 Acknowledgments
