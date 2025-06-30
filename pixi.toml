@@ -7,8 +7,7 @@ name = "l0"
 platforms = ["linux-64"]
 
 [system-requirements]
-cuda = "12.9"
-
+cuda = "12.6"
 
 [tasks]
 
