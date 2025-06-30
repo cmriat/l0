@@ -97,14 +97,14 @@ cd l0
 ```
 We use **Pixi** for package management. 
 
-* Pixi is a fast, reliable, and cross-platform package manager for Python and other languages. Visit [pixi.sh](https://pixi.sh) to learn more and install it.
+* Pixi is a fast, reliable, and cross-platform package manager for Python and other languages. Visit [pixi.sh](https://pixi.sh/latest/installation/) to learn more and install it.
 
-After installing pixi,
 ```bash
-export CONDA_OVERRIDE_CUDA=12.9
+# Install Pixi if you haven't already
+# curl -fsSL https://pixi.sh/install.sh | bash
 
-# Install dependencies using Pixi.
-pixi install
+# Bypass the default CUDA version check 
+# export CONDA_OVERRIDE_CUDA=12.9 
 
 # Enter the environment
 pixi shell
