@@ -1,11 +1,11 @@
-## 做了什么 / What did you do
-阐述本次PR的修改内容
+## What did you do
+Explain what you did in this PR. If it is a bug fix, please include the issue number.
 
-## 新增测试用例 / New test cases
-如果没有，填无
+## New test cases
+If you added new features, please add test cases to cover them. If it is a bug fix, please add test cases to reproduce the bug.
 
-## 测试结果 / Test results
-如果是文档修改，可以不跑测试
+## Test results
+If this is a documentation change, you can skip running tests.
 
-## 其他说明 / Other comments
-其他需要说明的内容，如果没有，填无
+## Other comments
+If you have any other comments, please include them here.
