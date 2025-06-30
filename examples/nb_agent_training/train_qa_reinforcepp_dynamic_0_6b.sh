@@ -19,7 +19,8 @@ VERL_LOGGING_LEVEL=INFO PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_se
  actor_rollout_ref.rollout.n=4 \
  actor_rollout_ref.actor.do_not_split_ppo_mini_batch=True \
  actor_rollout_ref.actor.use_kl_loss=True \
- actor_rollout_ref.actor.fsdp_config.offload_policy=True \
+ actor_rollout_ref.actor.fsdp_config.param_offload=True \
+ actor_rollout_ref.actor.fsdp_config.optimizer_offload=True \
  actor_rollout_ref.actor.use_dynamic_bsz=True \
  actor_rollout_ref.actor.ppo_max_token_len_per_gpu=20000 \
  actor_rollout_ref.rollout.name=sglang \
