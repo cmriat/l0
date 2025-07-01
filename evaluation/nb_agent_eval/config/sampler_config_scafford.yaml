@@ -1,7 +1,7 @@
 traj_sampler:
   model_id: Qwen/Qwen2.5-7B-Instruct
-  max_concurrency: 256
-  max_retries: 3
+  max_concurrency: 1024
+  max_retries: 1
   task_timeout: 600
   agent_type: nb_agent
   executor_type: remote
@@ -29,7 +29,7 @@ traj_sampler:
       max_steps: 10
     log_path: "./log"
   evaluator:
-    data_dir: "./eval_datasets/data"
+    data_dir: "hf"
     save_dir: "./results/qwen2.5-7b-scafford-0626"
     mode: "nb_agent"
-    n_samples: 1
+    n_samples: 3
