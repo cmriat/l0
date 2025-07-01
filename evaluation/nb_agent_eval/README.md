@@ -31,8 +31,7 @@ evaluation/nb_agent_eval
 ├─ compute_metrices.py     # Metric implementations (EM, F1, etc.)
 ├─ evaluator.py            # Core evaluation engine
 ├─ sampler.py              # Trajectory sampler
-├─ main.py                 # CLI entry point (invoked by run_eval.sh)
-├─ run_eval.sh             # Convenience wrapper
+├─ main.py                 # CLI entry point
 └─ README.md               # ← **you are here**
 ```
 
@@ -56,16 +55,7 @@ Similar to training, you need to start a task server to handle concurrent reques
 # 3. Edit config/sampler_config_train.yaml to point at your model / server
 
 # 4. Back to evaluation directory and Run the example evaluation (4 datasets)
-bash run_eval.sh
-```
-
-`run_eval.sh`
-
-```bash
-#!/usr/bin/env bash
-python main.py \
-  --datasets bamboogle musique simpleqa hotpotqa \
-  --config_path evaluation/nb_agent_eval/config/sampler_config_train.yaml
+python main.py --datasets simpleqa bamboogle musique hotpotqa --config_path YOUR_CONFIG_PATH
 ```
 
 `main.py` automatically picks up all listed datasets;
