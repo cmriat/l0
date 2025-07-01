@@ -1,17 +1,17 @@
 traj_sampler:
   model_id: Qwen/Qwen2.5-7B-Instruct
-  max_concurrency: 64
-  max_retries: 3
-  task_timeout: 1200
+  max_concurrency: 256
+  max_retries: 1
+  task_timeout: 600
   agent_type: nb_agent
   executor_type: remote
   remote_exec_server_url: 
-    - http://10.80.78.178:8000
+    - http://{your_ip_address}:8000
   agent:
     uuid: abc
     openai_server_model:
       model_id: "qwen2"
-      base_url: "http://10.80.82.249:30000/v1"
+      base_url: "http://{your_ip_address}:30000/v1"
       server_mode: sglang
     nb_agent:
       uuid: abc
@@ -30,7 +30,7 @@ traj_sampler:
       file_path: null
     log_path: "./log"
   evaluator:
-    data_dir: "./eval_datasets/data"
-    save_dir: "./results/qwen2.5-7b-direct-0626"
+    data_dir: "hf"
+    save_dir: "./results/qwen2.5-7b-direct"
     mode: "direct"
     n_samples: 1
