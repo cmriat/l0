@@ -3,7 +3,7 @@
 <div align="center">
 
 [<img src="https://devin.ai/assets/deepwiki-badge.png" alt="Ask DeepWiki.com" height="20"/>](https://deepwiki.com/cmriat/l0)
-[![Paper](https://img.shields.io/badge/Paper-PDF-orange.svg)](./papers/l0.pdf)
+[![Paper](https://img.shields.io/badge/Paper-PDF-orange.svg)](https://arxiv.org/abs/2506.23667)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Model-yellow.svg)](https://huggingface.co/cmriat/models)
 [![知乎](https://img.shields.io/badge/知乎-Article-green.svg)](https://zhuanlan.zhihu.com/p/1922271253122748911)
 
