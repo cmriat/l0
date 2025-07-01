@@ -108,7 +108,7 @@ class GAIADataset(BaseDataset):
             uuids.append(format_id)
             prompt = f"{entry.question}. {self._prompt}"
             if entry.file_path:
-                prompt += self._file_attach_prompt
+                prompt += self._file_attach_prompt.format(file_path=entry.file_path)
             prompts.append(prompt)
             labels.append(entry.golden_answers)
             file_paths.append(entry.file_path)

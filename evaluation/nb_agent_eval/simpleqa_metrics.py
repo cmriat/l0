@@ -22,9 +22,12 @@ import argparse
 import concurrent.futures
 from typing import Dict, List, Iterable, Optional
 from pathlib import Path
+import dotenv
 
 # Import the OpenAI library
 import openai
+
+dotenv.load_dotenv(override=True)
 
 GRADER_TEMPLATE = """
 Your job is to look at a question, a gold target, and a predicted answer, and then assign a grade of either ["CORRECT", "INCORRECT", "NOT_ATTEMPTED"].
@@ -160,6 +163,8 @@ def evaluate_file_with_llm(path: Path, client: openai.OpenAI, model: str, max_wo
             question = obj.get("question")
             predicted_answers = obj.get("answer")
             labels = obj.get("label", [])
+            if isinstance(labels, str):
+                labels = [labels]
 
             if not all([question, labels]):
                 print(f"[WARN] {path}: line {idx} missing question or labels — skipped")
@@ -241,13 +246,12 @@ def _parse_args() -> argparse.Namespace:
     )
     p.add_argument("model_dir", type=Path, help="Path to a model directory (contains dataset sub-dirs)")
     p.add_argument("--csv", type=Path, default=None, help="Destination CSV for aggregated metrics")
-    p.add_argument("--workers", type=int, default=10, help="Number of concurrent requests to make to the API")
+    p.add_argument("--workers", type=int, default=64, help="Number of concurrent requests to make to the API")
     return p.parse_args()
 
 
 def main() -> None:
     args = _parse_args()
-
     # Initialize OpenAI client
     try:
         client = openai.OpenAI(base_url=os.getenv("OPENAI_API_BASE"), api_key=os.getenv("OPENAI_API_KEY"))

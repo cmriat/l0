@@ -17,7 +17,7 @@ import os
 import logging
 from typing import Any
 
-TOOL_FACTORY_MAP: dict[str, str] = {"qa": {"web_search_tool_factory", "jina_reader_tool_factory"}, "math": {}}
+TOOL_FACTORY_MAP: dict[str, str] = {"qa": {"web_search_tool_factory", "jina_reader_tool_factory", "visual_qa_tool_factory"}, "math": {}}
 
 TOOL_SPECS_MAP: dict[str, dict[str, Any]] = {
     "file_inspector_tool_factory": {
@@ -33,7 +33,7 @@ TOOL_SPECS_MAP: dict[str, dict[str, Any]] = {
     },
     "web_search_tool_factory": {"serper_api_key": os.getenv("SERPER_API_KEY"), "max_text_limitation": 1000},
     "jina_reader_tool_factory": {"api_key": os.getenv("JINA_API_KEY"), "token_budget": 100000},
-    # "visual_qa_tool_factory": {"model_id": os.getenv("VLM_MODEL_ID"), "base_url": os.getenv("VLM_API_BASE"), "api_key": os.getenv("VLM_API_KEY")}
+    "visual_qa_tool_factory": {"model_id": os.getenv("VLM_MODEL_ID"), "base_url": os.getenv("VLM_API_BASE"), "api_key": os.getenv("VLM_API_KEY")}
 }
 
 

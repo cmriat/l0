@@ -42,6 +42,7 @@ def _tokens(text: str | None) -> List[str]:
 
 
 def exact_match(answer: str | None, refs: List[str]) -> bool:
+    
     norm = _normalize(answer)
     return any(norm == _normalize(r) for r in refs)
 
@@ -92,6 +93,8 @@ def evaluate_file(path: Path) -> Dict[str, float]:
                 continue
             f1 = []
             em = []
+            if isinstance(labels, str):
+                labels = [labels]
             for answer in answers:
                 f1.append(f1_score(answer, labels))
                 em.append(float(exact_match(answer, labels)))
