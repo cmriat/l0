@@ -17,7 +17,7 @@ import os
 import logging
 from typing import Any
 
-TOOL_FACTORY_MAP: dict[str, str] = {"qa": {"web_search_tool_factory", "jina_reader_tool_factory", "visual_qa_tool_factory"}, "math": {}}
+TOOL_FACTORY_MAP: dict[str, set[str]] = {"qa": {"web_search_tool_factory", "jina_reader_tool_factory", "visual_qa_tool_factory"}, "math": {}}
 
 TOOL_SPECS_MAP: dict[str, dict[str, Any]] = {
     "file_inspector_tool_factory": {
