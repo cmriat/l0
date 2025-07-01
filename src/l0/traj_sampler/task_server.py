@@ -54,7 +54,7 @@ class TaskStatus(BaseModel):
 
 task_registry: dict[str, TaskState] = {}
 
-MAX_CONCURRENT_TASKS = get_num_processes(None, 4) * 8
+MAX_CONCURRENT_TASKS = get_num_processes(None, 4) * 2
 task_semaphore: asyncio.Semaphore | None = None
 state_modification_lock: asyncio.Lock | None = None
 
