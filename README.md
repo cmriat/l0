@@ -260,15 +260,3 @@ pytest ./tests
 - Special thanks to the [Pixi](https://pixi.sh) team for their excellent package management tool, which greatly simplifies our development process.
 
 ---
-
-## 📖 Citation
-If you find this project useful, please cite it in your research:
-
-```bibtex
-@misc{liconrockai2025l0,
-      title={L0: Reinforcement Learning to Become General Agents}, 
-      author={Lionrock-AI},
-      year={2025},
-      URL="https://github.com/cmriat/l0/tree/main/papers/l0.pdf"
-}
-```
