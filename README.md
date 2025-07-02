@@ -47,7 +47,6 @@ L0 is a scalable, end-to-end training pipeline for general-purpose agents. We pr
     - [For developing and testing](#for-developing-and-testing)
   - [⚠️ Known Issues](#️-known-issues)
   - [🙏 Acknowledgments](#-acknowledgments)
-  - [📖 Citation](#-citation)
 
 
 
