@@ -26,7 +26,7 @@ from config_dataclass import ConfigDataclass
 from eval_datasets._base import BaseDataset
 from eval_datasets.dataset_registry import DatasetRegistry
 
-VALID_DATASETS = ["bamboogle", "musique", "gaia", "nq", "hotpotqa", "2wiki", "triviaqa", "simpleqa"]
+VALID_DATASETS = ["bamboogle", "musique", "hotpotqa", "simpleqa"]
 
 MAX_CONCURRENCY = 32
 
