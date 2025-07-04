@@ -34,6 +34,7 @@ uvicorn = ">=0.34.3,<0.35"
 config_dataclass = ">=0.1.0,<0.2"
 liger-kernel = ">=0.5.10,<0.6"
 ray-default = "2.46.*"
+jupyterlab = ">=4.4.1,<5"
 
 [pypi-dependencies]
 google-search-results = "*"
